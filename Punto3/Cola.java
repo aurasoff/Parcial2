@@ -15,7 +15,7 @@ public class Cola<T> {
         
     }
     public int getSize(){return size;}
-    private boolean isEmpty() {return  firstNode == null;
+    public boolean isEmpty() {return  firstNode == null;
     }
     public void encolar(T data){
         NodeSimple<T> newNodeSimple = new NodeSimple(data);
@@ -28,7 +28,6 @@ public class Cola<T> {
         }
         size++;
     }
-
     public T desencolar(){
         if(isEmpty()){
             throw new RuntimeException("La cola esta vacia");
@@ -37,7 +36,6 @@ public class Cola<T> {
             firstNode = firstNode.getNext();
             size--;
             return data;
-
         }
     }
     public void invertirColaRecursivo() {
@@ -47,7 +45,6 @@ public class Cola<T> {
         T elemento = desencolar();
         invertirColaRecursivo();
         encolar(elemento);
-       
     }
     public Cola<T> clonar() {
     Cola<T> copia = new Cola<>();
@@ -59,20 +56,16 @@ public class Cola<T> {
     }
     return copia;
     }
-
-
     public boolean sonIdenticas(Cola<T> otra) {
         if (otra == null || this.size != otra.size) {
             return false;            
         }
 
-    NodeSimple<T> a = this.firstNode;
-    NodeSimple<T> b = otra.firstNode;
-
+        NodeSimple<T> a = this.firstNode;
+        NodeSimple<T> b = otra.firstNode;
         while (a != null) {
          if (!Objects.equals(a.getData(), b.getData())) {
-            return false;                  
-           
+            return false;                     
         }
         a = a.getNext();
         b = b.getNext();
@@ -80,7 +73,4 @@ public class Cola<T> {
         return true;                   
     }
     public int size() {return size;}
-
-    
-
 }
