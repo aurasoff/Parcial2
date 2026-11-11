@@ -10,6 +10,7 @@ public class Punto2 {
 
         Pila<T> respaldo = new Pila<>();
         Pila<T> segmento = new Pila<>();
+        Pila<T>  copia = new Pila<T>();
 
         for (int pos = 1; pos <= total; pos++){
             T accion = pila.pop();
@@ -29,5 +30,7 @@ public class Punto2 {
         return resultado;
       
     }
+
+  
 
 }

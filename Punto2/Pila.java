@@ -1,5 +1,6 @@
 package Punto2;
 
+import java.util.Stack;
 
 public class Pila<T> {
     private Node<T> top;
@@ -45,5 +46,26 @@ public class Pila<T> {
             aux = aux.getNext();
         }
     }
+    public void addAll(Pila<T> pila2) {
 
+    if (pila2 == null || pila2.isEmpty()) {
+        return;
+    }
+
+    Stack<T> pilaAux = new Stack<>();
+    Node<T> actual = pila2.top;
+
+    // Pasar los elementos de pila2 a una pila auxiliar
+    while (actual != null) {
+        pilaAux.push(actual.getData());
+        actual = actual.getNext();
+    }
+
+    // Pasar los elementos de la auxiliar a la pila actual
+    while (!pilaAux.isEmpty()) {
+        this.push(pilaAux.pop());
+    }
+    }
 }
+
+
